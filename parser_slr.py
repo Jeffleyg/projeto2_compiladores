@@ -38,7 +38,6 @@ def executar_parser(fita_tokens):
                 pilha_estados.pop()
                 nos_reduzidos.insert(0, pilha_valores.pop())
                 
-            # Interceptação e execução das ações semânticas associadas à produção [cite: 21, 25]
             atributo_retorno = suporte.acao_semantica(regra_num, nos_reduzidos)
             
             # Executa a transição GOTO subsequente
@@ -49,14 +48,13 @@ def executar_parser(fita_tokens):
             print(f"[Sintático] Reduziu pela Regra: {esquerda} -> {' '.join(direita)}")
             
         elif acao == 'ACC':  # Cadeia Aceita
-            print("[+] ACEITO: Cadeia reconhecida com sucesso sintático e semântico!") # [cite: 17, 23]
+            print("[+] ACEITO: Cadeia reconhecida com sucesso sintático e semântico!")
             
             # Exibição do resultado da Etapa 3 [cite: 26]
             print("\n--- ETAPA 3: CÓDIGO INTERMEDIÁRIO GERADO ---")
             for linha in suporte.codigo_intermediario:
                 print(linha)
                 
-            # Exibição do resultado da Etapa 4 [cite: 30]
             codigo_otimizado = suporte.otimizar_codigo()
             for linha in codigo_otimizado:
                 print(linha)

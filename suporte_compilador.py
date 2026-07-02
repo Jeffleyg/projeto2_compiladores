@@ -2,9 +2,7 @@ import sys
 
 class CompiladorSuporte:
     def __init__(self):
-        # Etapa 2: Suporte para tabela de símbolos
         self.tabela_simbolos = {} 
-        # Etapa 3: Armazenamento do Código Intermediário
         self.codigo_intermediario = []
         self.temp_count = 0
 
@@ -12,7 +10,6 @@ class CompiladorSuporte:
         self.temp_count += 1
         return f"t{self.temp_count}"
 
-    # Etapa 2 & 3: Esquema de Tradução acionado nas reduções
     def acao_semantica(self, regra_num, nos_reduzidos):
         if regra_num == 8:  # Comando -> tipo id ;
             tipo = nos_reduzidos[0]['valor']
@@ -55,9 +52,7 @@ class CompiladorSuporte:
             
         return {'lugar': None}
 
-    # Etapa 4: Estratégia de Otimização (Constant Folding e Propagação)
     def otimizar_codigo(self):
-        print("\n--- ETAPA 4: OTIMIZAÇÃO DE CÓDIGO INTERMEDIÁRIO ---")
         otimizado = []
         valores_conhecidos = {}
 
