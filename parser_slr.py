@@ -10,7 +10,7 @@ def executar_parser(fita_tokens):
     tokens = fita_tokens + [('$', '$')]
     ponteiro = 0
     
-    print("--- ETAPA 1: ANÁLISE SINTÁTICA (SLR) ---")
+    print("--- ANÁLISE SINTÁTICA (SLR) ---")
     
     while True:
         estado_atual = pilha_estados[-1]
@@ -51,7 +51,7 @@ def executar_parser(fita_tokens):
             print("[+] ACEITO: Cadeia reconhecida com sucesso sintático e semântico!")
             
             # Exibição do resultado da Etapa 3 [cite: 26]
-            print("\n--- ETAPA 3: CÓDIGO INTERMEDIÁRIO GERADO ---")
+            print("\n--- CÓDIGO INTERMEDIÁRIO GERADO ---")
             for linha in suporte.codigo_intermediario:
                 print(linha)
                 
